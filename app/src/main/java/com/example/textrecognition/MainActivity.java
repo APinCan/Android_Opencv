@@ -1,10 +1,14 @@
  package com.example.textrecognition;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +19,7 @@ import java.io.File;
 
  public class MainActivity extends AppCompatActivity {
     private final int MY_PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE=1001;
+    private static final int PICK_FROM_ALBUM = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,5 +68,19 @@ import java.io.File;
         }
 
         return ;
+     }
+
+     //앨범에서 선택한 이미지를 가져옴
+     private void goToAlbum(){
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+        startActivityForResult(intent, PICK_FROM_ALBUM);
+     }
+
+     @Override
+     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode==PICK_FROM_ALBUM){
+            Uri photoUri = data.getData();
+        }
      }
  }
