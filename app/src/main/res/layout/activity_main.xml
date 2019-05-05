@@ -8,22 +8,28 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/topImageView"
         android:layout_width="match_parent"
-        android:layout_height="403dp"
+        android:layout_height="301dp"
         android:layout_margin="20px"
         app:srcCompat="@android:color/background_light" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnload"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="ImageLoad" />
 
-        <Button
-            android:id="@+id/btnload"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ImageLoad" />
+    <Button
+        android:id="@+id/btnconvert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImageConvert" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/OCRTextView"
+        android:layout_width="match_parent"
+        android:layout_height="307dp"
+        android:text="example" />
+
 </LinearLayout>
